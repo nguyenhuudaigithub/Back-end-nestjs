@@ -151,7 +151,3 @@ Một ứng dụng backend mạnh mẽ và có thể mở rộng được xây d
 - **tsconfig-paths**: Hỗ các hỗ trợ alias đường dẫn trong TypeScript.
 - **typescript**: Ngôn ngữ lập trình TypeScript.
 - **webpack**: Công cụ bundling cho JavaScript.
-
-## Giấy Phép
-
-Dự án này được cấp phép theo [MIT License](LICENSE).
