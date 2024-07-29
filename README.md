@@ -52,7 +52,6 @@ Một ứng dụng backend mạnh mẽ và có thể mở rộng được xây d
 - `build`: Biên dịch ứng dụng
   ```bash
   npm run build
-  Flavor-flavMy job
   ```
 - `format`: Định dạng mã nguồn bằng Prettier
   ```bash
