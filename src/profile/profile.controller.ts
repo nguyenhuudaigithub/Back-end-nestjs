@@ -18,7 +18,7 @@ export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
   @Post()
-  @ResponseMessage('Tạo trang thành công!')
+  @ResponseMessage('Tạo thành công!')
   create(@Body() createProfileDto: CreateProfileDto, @User() user: IUser) {
     return this.profileService.create(createProfileDto, user);
   }
