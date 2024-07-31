@@ -1,8 +1,8 @@
 {
-  "name": "nest-basic-hoidanit",
+  "name": "My-Profile",
   "version": "0.0.1",
-  "description": "https://hoidanit.com.vn/",
-  "author": "Hỏi Dân IT",
+  "description": "My-Profile Nguyen Huu Dai",
+  "author": "My-Profile",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
