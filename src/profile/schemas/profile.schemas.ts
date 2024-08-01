@@ -20,6 +20,9 @@ export class Profile {
     path: string;
   }[];
 
+  @Prop()
+  isActice: boolean;
+
   @Prop({
     type: {
       image: String,

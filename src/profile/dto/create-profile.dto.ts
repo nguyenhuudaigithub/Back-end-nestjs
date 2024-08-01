@@ -16,6 +16,8 @@ export class CreateProfileDto {
   @IsNotEmpty({ message: 'Logo không được để trống' })
   logo: string;
 
+  isActice: boolean = false;
+
   @IsString({ message: 'Mô tả phải là kiểu chuỗi' })
   @IsNotEmpty({ message: 'Mô tả không được để trống' })
   description: string;
