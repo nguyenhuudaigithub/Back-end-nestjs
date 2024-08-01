@@ -52,7 +52,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
       throw new ForbiddenException('Endpoint không xác định!');
     }
 
-    const permissions = user?.permissions ?? [];
+    const permissions = user?.permission ?? [];
     let isExist = permissions.find(
       (permissions) =>
         targetMethod === permissions.method &&

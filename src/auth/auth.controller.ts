@@ -49,7 +49,7 @@ export class AuthController {
   @ResponseMessage('Lấy thông tin người dùng thành công !')
   async handleGetAccount(@User() user: IUser) {
     const temp = (await this.roleService.findOne(user.role._id)) as any;
-    user.permission = temp.permission;
+    // user.permission = temp.permission;
     return { user };
   }
 

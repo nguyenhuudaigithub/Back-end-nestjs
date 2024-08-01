@@ -79,7 +79,7 @@ export class RolesService {
       throw new BadRequestException(`Không tìm thấy vai trò ! với ${id}`);
     return (await this.roleModel.findOne({ _id: id })).populate({
       path: 'permissions',
-      select: { _id: 1, name: 1, method: 1, module: 1 },
+      select: { _id: 1, name: 1, method: 1, module: 1, apiPath: 1 },
     });
   }
 
