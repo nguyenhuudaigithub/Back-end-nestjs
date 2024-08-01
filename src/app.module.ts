@@ -12,6 +12,8 @@ import { DatabasesModule } from './databases/databases.module';
 import { AuthModule } from './auth/auth.module';
 import { ProfileModule } from './profile/profile.module';
 import { FilesModule } from './files/files.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -54,6 +56,10 @@ import { FilesModule } from './files/files.module';
     ProfileModule,
 
     FilesModule,
+
+    CloudinaryModule,
+
+    HealthModule,
   ],
 
   controllers: [AppController],

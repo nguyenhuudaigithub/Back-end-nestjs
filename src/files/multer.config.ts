@@ -4,8 +4,8 @@ import {
   MulterOptionsFactory,
 } from '@nestjs/platform-express';
 import fs from 'fs';
-import { diskStorage } from 'multer';
 import path, { join } from 'path';
+import { memoryStorage } from 'multer'; // Sử dụng memoryStorage
 
 @Injectable()
 export class MulterConfigService implements MulterOptionsFactory {
@@ -39,21 +39,7 @@ export class MulterConfigService implements MulterOptionsFactory {
 
   createMulterOptions(): MulterModuleOptions {
     return {
-      storage: diskStorage({
-        destination: (req, file, cb) => {
-          const folder = req?.headers?.folder_type ?? 'default';
-          this.ensureExists(`public/images/${folder}`);
-          cb(null, join(this.getRootPath(), `public/images/${folder}`));
-        },
-        filename: (req, file, cb) => {
-          //get image extension
-          let extName = path.extname(file.originalname);
-          //get image's name (without extension)
-          let baseName = path.basename(file.originalname, extName);
-          let finalName = `${baseName}-${Date.now()}${extName}`;
-          cb(null, finalName);
-        },
-      }),
+      storage: memoryStorage(), // Sử dụng memoryStorage
       fileFilter: (req, file, cb) => {
         const allowedFileTypes = [
           'jpg',
@@ -72,7 +58,7 @@ export class MulterConfigService implements MulterOptionsFactory {
               'Invalid file type',
               HttpStatus.UNPROCESSABLE_ENTITY,
             ),
-            null,
+            false,
           );
         } else cb(null, true);
       },
@@ -81,5 +67,4 @@ export class MulterConfigService implements MulterOptionsFactory {
       },
     };
   }
-  18;
 }
