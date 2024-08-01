@@ -11,6 +11,7 @@ import { PermissionsModule } from './permissions/permissions.module';
 import { DatabasesModule } from './databases/databases.module';
 import { AuthModule } from './auth/auth.module';
 import { ProfileModule } from './profile/profile.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -51,6 +52,8 @@ import { ProfileModule } from './profile/profile.module';
     AuthModule,
 
     ProfileModule,
+
+    FilesModule,
   ],
 
   controllers: [AppController],
