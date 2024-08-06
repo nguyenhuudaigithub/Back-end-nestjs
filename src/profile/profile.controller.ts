@@ -11,7 +11,7 @@ import {
 import { ProfileService } from './profile.service';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
-import { ResponseMessage, User } from 'src/decorator/customize';
+import { Public, ResponseMessage, User } from 'src/decorator/customize';
 import { IUser } from 'src/users/users.interface';
 
 @Controller('profile')
@@ -22,6 +22,13 @@ export class ProfileController {
   @ResponseMessage('Tạo thành công hồ sơ!')
   create(@Body() createProfileDto: CreateProfileDto, @User() user: IUser) {
     return this.profileService.create(createProfileDto, user);
+  }
+
+  @Public()
+  @Get('/fontend')
+  @ResponseMessage('Lấy ra giao diện thành công!')
+  findFontEnd() {
+    return this.profileService.findFontEnd();
   }
 
   @Get()

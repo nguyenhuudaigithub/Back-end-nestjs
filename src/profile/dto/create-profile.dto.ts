@@ -1,10 +1,4 @@
-import {
-  IsArray,
-  IsNotEmpty,
-  IsString,
-  IsOptional,
-  ValidateNested,
-} from 'class-validator';
+import { IsArray, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class CreateProfileDto {
@@ -16,7 +10,7 @@ export class CreateProfileDto {
   @IsNotEmpty({ message: 'Logo không được để trống' })
   logo: string;
 
-  isActice: boolean = false;
+  isActive: boolean;
 
   @IsString({ message: 'Mô tả phải là kiểu chuỗi' })
   @IsNotEmpty({ message: 'Mô tả không được để trống' })
@@ -34,7 +28,7 @@ export class CreateProfileDto {
   heroSection: {
     image: string;
     text: string;
-    infor: { title: string; time: string }[];
+    infor: { title: string; time: number }[];
   };
 
   @IsArray({ message: 'Danh sách thành tích phải là kiểu mảng' })

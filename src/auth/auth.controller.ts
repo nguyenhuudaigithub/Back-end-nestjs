@@ -48,8 +48,10 @@ export class AuthController {
   @Get('/account')
   @ResponseMessage('Lấy thông tin người dùng thành công !')
   async handleGetAccount(@User() user: IUser) {
-    const temp = (await this.roleService.findOne(user.role._id)) as any;
+    // const temp = (await this.roleService.findOne(user.role._id)) as any;
+    // console.log(user);
     // user.permission = temp.permission;
+
     return { user };
   }
 

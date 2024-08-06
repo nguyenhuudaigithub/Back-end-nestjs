@@ -14,46 +14,26 @@ export class Profile {
   @Prop()
   description: string;
 
-  @Prop({ type: [{ title: String, path: String }] })
+  @Prop({ type: mongoose.Schema.Types.Array })
   navLink: {
     title: string;
     path: string;
   }[];
 
   @Prop()
-  isActice: boolean;
+  isActive: boolean;
 
-  @Prop({
-    type: {
-      image: String,
-      text: String,
-      infor: [
-        {
-          title: String,
-          time: String,
-        },
-      ],
-    },
-  })
+  @Prop({ type: Object })
   heroSection: {
     image: string;
     text: string;
     infor: {
       title: string;
-      time: string;
+      time: number;
     }[];
   };
 
-  @Prop({
-    type: [
-      {
-        prefix: String,
-        metric: String,
-        value: String,
-        postfix: String,
-      },
-    ],
-  })
+  @Prop({ type: mongoose.Schema.Types.Array })
   achievementsList: {
     prefix: string;
     metric: string;
@@ -61,48 +41,20 @@ export class Profile {
     postfix: string;
   }[];
 
-  @Prop({
-    type: {
-      title: String,
-      detail: String,
-    },
-  })
+  @Prop({ type: Object })
   about: {
     title: string;
     detail: string;
   };
 
-  @Prop({
-    type: [
-      {
-        title: String,
-        id: String,
-        content: String,
-      },
-    ],
-  })
+  @Prop({ type: mongoose.Schema.Types.Array })
   tabData: {
     title: string;
     id: string;
     content: string;
   }[];
 
-  @Prop({
-    type: {
-      title: String,
-      data: [
-        {
-          id: Number,
-          title: String,
-          description: String,
-          image: String,
-          tag: [String],
-          gitUrl: String,
-          previewUrl: String,
-        },
-      ],
-    },
-  })
+  @Prop({ type: Object })
   projectsData: {
     title: string;
     data: {
@@ -116,19 +68,7 @@ export class Profile {
     }[];
   };
 
-  @Prop({
-    type: {
-      title: String,
-      detail: String,
-      socialMedia: [
-        {
-          name: String,
-          image: String,
-          link: String,
-        },
-      ],
-    },
-  })
+  @Prop({ type: Object })
   contact: {
     title: string;
     detail: string;

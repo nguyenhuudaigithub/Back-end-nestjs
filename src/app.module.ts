@@ -14,6 +14,7 @@ import { ProfileModule } from './profile/profile.module';
 import { FilesModule } from './files/files.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { HealthModule } from './health/health.module';
+import { RedisModule } from '@nestjs-modules/ioredis';
 
 @Module({
   imports: [
@@ -40,6 +41,18 @@ import { HealthModule } from './health/health.module';
           return connection;
         },
       }),
+      inject: [ConfigService],
+    }),
+
+    // Cấu hình RedisModule để kết nối với Redis
+    RedisModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (config: ConfigService) => {
+        return {
+          type: 'single',
+          url: config.get<string>('REDIS_URL'),
+        };
+      },
       inject: [ConfigService],
     }),
 
