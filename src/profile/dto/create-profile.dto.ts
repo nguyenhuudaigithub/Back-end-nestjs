@@ -28,6 +28,7 @@ export class CreateProfileDto {
   heroSection: {
     image: string;
     text: string;
+    myCv: string;
     infor: { title: string; time: number }[];
   };
 

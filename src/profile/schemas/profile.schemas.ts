@@ -27,6 +27,7 @@ export class Profile {
   heroSection: {
     image: string;
     text: string;
+    myCv: string;
     infor: {
       title: string;
       time: number;
