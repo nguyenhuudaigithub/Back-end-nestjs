@@ -16,6 +16,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { HealthModule } from './health/health.module';
 import { RedisModule } from '@nestjs-modules/ioredis';
 import { BlogsModule } from './blogs/blogs.module';
+import { SendModule } from './send/send.module';
 
 @Module({
   imports: [
@@ -76,6 +77,8 @@ import { BlogsModule } from './blogs/blogs.module';
     HealthModule,
 
     BlogsModule,
+
+    SendModule,
   ],
 
   controllers: [AppController],
