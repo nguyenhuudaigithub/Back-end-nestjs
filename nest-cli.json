@@ -3,7 +3,7 @@
   "sourceRoot": "src",
   "compilerOptions": {
     "assets": [
-      "mail/templates/**/*"
+      "send/templates/**/*"
     ],
     "watchAssets": true
   }

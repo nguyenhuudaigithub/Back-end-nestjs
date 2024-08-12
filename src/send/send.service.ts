@@ -7,15 +7,30 @@ import { InjectModel } from '@nestjs/mongoose';
 import aqp from 'api-query-params';
 import mongoose from 'mongoose';
 import { IUser } from 'src/users/users.interface';
+import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class SendService {
   constructor(
     @InjectModel(Send.name)
     private sendModel: SoftDeleteModel<SendDocument>,
+    private readonly mailerService: MailerService,
   ) {}
   async create(createSendDto: CreateSendDto) {
     const { email, subject, message } = createSendDto;
+
+    await this.mailerService.sendMail({
+      to: 'nguyenhuudaidev@gmail.com',
+      from: 'My Profile',
+      subject: 'Bạn có thông báo mới trên trang cá nhân',
+      template: 'mailSend',
+      context: {
+        email: email,
+        subject: subject,
+        message: message,
+      },
+    });
+
     const send = await this.sendModel.create({ email, subject, message });
     return {
       id: send._id,

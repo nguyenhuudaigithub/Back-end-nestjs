@@ -45,7 +45,7 @@ export class DatabasesService implements OnModuleInit {
         await this.roleModel.insertMany([
           {
             name: ADMIN_ROLE,
-            description: 'Admin thì full quyền :v',
+            description: 'Admin thì full quyền',
             isActive: true,
             permissions: permissions,
           },
@@ -64,19 +64,8 @@ export class DatabasesService implements OnModuleInit {
         const userRole = await this.roleModel.findOne({ name: USER_ROLE });
         await this.userModel.insertMany([
           {
-            name: "I'm admin",
+            name: 'Admin',
             email: 'admin@gmail.com',
-            password: this.userService.gethashPassword(
-              this.configService.get<string>('INIT_PASSWORD'),
-            ),
-            age: 69,
-            gender: 'MALE',
-            address: 'VietNam',
-            role: adminRole?._id,
-          },
-          {
-            name: 'Nguyễn Hữu Đại',
-            email: 'hoidanit@gmail.com',
             password: this.userService.gethashPassword(
               this.configService.get<string>('INIT_PASSWORD'),
             ),
@@ -86,12 +75,23 @@ export class DatabasesService implements OnModuleInit {
             role: adminRole?._id,
           },
           {
-            name: "I'm normal user",
+            name: 'User1',
             email: 'user@gmail.com',
             password: this.userService.gethashPassword(
               this.configService.get<string>('INIT_PASSWORD'),
             ),
-            age: 69,
+            age: 22,
+            gender: 'MALE',
+            address: 'VietNam',
+            role: adminRole?._id,
+          },
+          {
+            name: 'User2',
+            email: 'user@gmail.com',
+            password: this.userService.gethashPassword(
+              this.configService.get<string>('INIT_PASSWORD'),
+            ),
+            age: 22,
             gender: 'MALE',
             address: 'VietNam',
             role: userRole?._id,
