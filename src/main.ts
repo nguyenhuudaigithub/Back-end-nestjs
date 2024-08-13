@@ -54,6 +54,6 @@ async function bootstrap() {
   app.use(helmet());
 
   // Lắng nghe ứng dụng trên cổng được cấu hình trong ConfigService
-  await app.listen(configService.get('PORT'));
+  await app.listen(configService.get('PORT'),'0.0.0.0');
 }
 bootstrap();
