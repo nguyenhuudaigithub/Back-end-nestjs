@@ -2,18 +2,6 @@
 #MongoDB 5.0+ requires a CPU with AVX support, => sử dụng image: mongo:4.4
 version: '3.8'
 services:
-  db-mongo:
-    image: mongo:6.0.6
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: 123456
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodb:/data/db
-    expose:
-      - 27017
-
   be-nest:
     build:
       context: .
